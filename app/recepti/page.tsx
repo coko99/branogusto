@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 
+import { BlurPhoto } from "@/components/blur-photo"
 import { Container } from "@/components/container"
 import { recipes } from "@/lib/commerce"
 
@@ -13,8 +14,9 @@ export const metadata: Metadata = {
 
 export default function RecipesPage() {
   return (
-    <section className="py-12 md:py-16">
-      <Container>
+    <section className="relative overflow-hidden py-12 md:py-16">
+      <BlurPhoto src="/images/life/vocnjak.jpg" tint="light" />
+      <Container className="relative">
         <p className="text-xs font-semibold tracking-[0.18em] text-paprika uppercase">Iz ostave</p>
         <h1 className="mt-3 text-5xl sm:text-6xl">Recepti</h1>
         <p className="mt-4 max-w-2xl text-lg leading-8 text-muted-foreground">

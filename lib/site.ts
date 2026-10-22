@@ -32,6 +32,8 @@ export type Category = {
   description: string
   image: string
   imageAlt: string
+  scene?: string
+  sceneAlt?: string
 }
 
 export type Product = {
@@ -53,6 +55,8 @@ export const categories: Category[] = [
     description: "Blagi i ljuti ajvar, u teglama od 375 g i 700 g.",
     image: "/images/products/ajvar-ljuti-700.jpg",
     imageAlt: "Tegla ljutog BraNo Gusto ajvara od 700 g",
+    scene: "/images/life/terasa.jpg",
+    sceneAlt: "Blagi i ljuti ajvar na kamenoj terasi, među paprikama",
   },
   {
     slug: "dzemovi",
@@ -61,6 +65,8 @@ export const categories: Category[] = [
     description: "Džemovi od šipurka, šljive, jagode i kajsije.",
     image: "/images/products/dzem-kajsija-700.jpg",
     imageAlt: "Tegla BraNo Gusto džema od kajsije, 700 g",
+    scene: "/images/life/sipurak.jpg",
+    sceneAlt: "Džem od šipurka i ajvar na klupi u voćnjaku",
   },
   {
     slug: "sokovi",
@@ -77,6 +83,8 @@ export const categories: Category[] = [
     description: "Paprika somborka u filetima, pasterizovana po tradicionalnoj pripremi.",
     image: "/images/products/somborka.jpg",
     imageAlt: "Tegla BraNo Gusto paprike somborke, pasterizovani fileti, 680 g",
+    scene: "/images/life/njiva.jpg",
+    sceneAlt: "Ajvar blagi, ljuti i somborka na sanduku u paprici",
   },
 ]
 

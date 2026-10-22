@@ -2,47 +2,19 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 
+import { BlurPhoto } from "@/components/blur-photo"
 import { Container } from "@/components/container"
 import { buttonVariants } from "@/components/ui/button"
 import { recipes } from "@/lib/commerce"
 import { categories, site } from "@/lib/site"
 import { cn } from "cn"
 
-const jars = [
-  {
-    src: "/images/products/ajvar-blagi-700.jpg",
-    alt: "Tegla blagog BraNo Gusto ajvara, 700 g",
-  },
-  {
-    src: "/images/products/dzem-sipurak-700.jpg",
-    alt: "Tegla BraNo Gusto džema od šipurka, 700 g",
-  },
-  {
-    src: "/images/products/sok-borovnica-05.jpg",
-    alt: "Flašica matičnog soka od divlje borovnice, 0,5 l",
-  },
-  {
-    src: "/images/products/somborka.jpg",
-    alt: "Tegla paprike somborke, 680 g",
-  },
-]
-
 export default function HomePage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-[#16324a] text-white">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0"
-        >
-          <span className="absolute top-8 left-[12%] size-1.5 rounded-full bg-white/70" />
-          <span className="absolute top-24 left-[28%] size-1 rounded-full bg-white/50" />
-          <span className="absolute top-16 right-[18%] size-2 rounded-full bg-white/40" />
-          <span className="absolute top-40 right-[32%] size-1 rounded-full bg-white/60" />
-          <span className="absolute bottom-24 left-[8%] size-1 rounded-full bg-white/40" />
-          <span className="absolute top-1/2 right-[8%] size-1.5 rounded-full bg-white/50" />
-        </div>
-        <Container className="relative grid items-center gap-10 py-16 md:grid-cols-[1.15fr_.85fr] md:py-24">
+      <section className="relative overflow-hidden text-white">
+        <BlurPhoto src="/images/life/vocnjak.jpg" />
+        <Container className="relative grid items-center gap-10 py-16 md:grid-cols-[1.05fr_.95fr] md:py-24">
           <div>
             <p className="text-xs font-semibold tracking-[0.22em] text-[#d7e6f5] uppercase">
               Hladno je napolju
@@ -70,24 +42,29 @@ export default function HomePage() {
               </a>
             </div>
           </div>
-          <ul className="grid grid-cols-2 gap-3">
-            {jars.map((jar) => (
-              <li
-                key={jar.src}
-                className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-[#f3eadc] shadow-[0_16px_40px_rgba(0,0,0,0.25)]"
-              >
-                <Image
-                  src={jar.src}
-                  alt={jar.alt}
-                  fill
-                  priority
-                  sizes="(min-width: 768px) 20vw, 45vw"
-                  className="object-cover"
-                />
-              </li>
-            ))}
-          </ul>
+          <div className="relative aspect-[16/9] overflow-hidden rounded-3xl shadow-[0_18px_50px_rgba(0,0,0,0.28)]">
+            <Image
+              src="/images/life/terasa.jpg"
+              alt="Blagi i ljuti ajvar na kamenoj terasi, među paprikama"
+              fill
+              priority
+              sizes="(min-width: 768px) 42vw, 100vw"
+              className="object-cover"
+            />
+          </div>
         </Container>
+      </section>
+
+      <section>
+        <div className="relative aspect-[16/9] w-full">
+          <Image
+            src="/images/life/njiva.jpg"
+            alt="Ajvar blagi, ljuti i somborka na sanduku usred paprike"
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
       </section>
 
       <section className="border-b border-border bg-[#eef3f7] py-10">

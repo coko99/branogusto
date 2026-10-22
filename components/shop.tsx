@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useSyncExternalStore } from "react"
 
 import { Container } from "@/components/container"
@@ -51,15 +52,27 @@ export function Shop() {
   }
 
   return (
-    <section className="py-10 md:py-14">
-      <Container>
-        <p className="text-xs font-semibold tracking-[0.2em] text-paprika uppercase">
-          Zimnica na jednom mestu
-        </p>
-        <h1 className="mt-3 text-5xl sm:text-6xl">Prodavnica</h1>
-        <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-          Cene su u dinarima. Preko 5.000 RSD dostava poštom je besplatna — traka iznad prati korpu.
-        </p>
+    <section className="pb-10 md:pb-14">
+      <div className="relative overflow-hidden border-b border-border">
+        <Image
+          src="/images/life/zalazak.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="scale-110 object-cover blur-md"
+        />
+        <div className="absolute inset-0 bg-[#f6f1e7]/86" />
+        <Container className="relative py-12 md:py-16">
+          <p className="text-xs font-semibold tracking-[0.2em] text-paprika uppercase">
+            Zimnica na jednom mestu
+          </p>
+          <h1 className="mt-3 text-5xl sm:text-6xl">Prodavnica</h1>
+          <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
+            Cene su u dinarima. Preko 5.000 RSD dostava poštom je besplatna — traka iznad prati korpu.
+          </p>
+        </Container>
+      </div>
+      <Container className="pt-6">
         <div
           className="sticky top-[var(--header-offset,4.5rem)] z-30 -mx-4 mt-6 flex gap-2 overflow-x-auto bg-background/95 px-4 py-3 backdrop-blur sm:mx-0 sm:px-0"
           role="navigation"

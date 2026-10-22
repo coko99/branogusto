@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 
 import { ContactForm } from "@/components/contact-form"
 import { Container } from "@/components/container"
@@ -24,7 +25,16 @@ export default function ContactPage() {
         </p>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-[.9fr_1.1fr] lg:gap-10">
-          <aside className="rounded-[1.75rem] bg-bark p-7 text-cream sm:p-8">
+          <aside className="relative overflow-hidden rounded-[1.75rem] bg-bark p-7 text-cream sm:p-8">
+            <Image
+              src="/images/life/kajsija.jpg"
+              alt=""
+              fill
+              sizes="(min-width: 1024px) 40vw, 100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-[#1c1410]/72" />
+            <div className="relative">
             <p className="text-xs font-semibold tracking-[0.2em] text-[#f6e7a8] uppercase">
               BraNo Gusto
             </p>
@@ -44,6 +54,7 @@ export default function ContactPage() {
               Instagram {site.instagramHandle}
             </a>
             <p className="mt-6 text-sm text-white/70">{site.region}</p>
+            </div>
           </aside>
           <ContactForm />
         </div>

@@ -20,8 +20,14 @@ export function CategoryPage({ slug }: { slug: CategorySlug }) {
   return (
     <>
       <RecordCategory slug={slug} />
-      <section className="border-b border-border bg-[#f3eadc]">
-        <Container className="grid items-center gap-8 py-12 md:grid-cols-[1.15fr_.85fr] md:py-16">
+      <section className="relative overflow-hidden border-b border-border bg-[#f3eadc]">
+        {category.scene ? (
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+            <Image src={category.scene} alt="" fill sizes="100vw" className="scale-110 object-cover blur-md" />
+            <div className="absolute inset-0 bg-[#f6f1e7]/84" />
+          </div>
+        ) : null}
+        <Container className="relative grid items-center gap-8 py-12 md:grid-cols-[1fr_1.05fr] md:py-16">
           <div>
             <p className="text-xs font-semibold tracking-[0.2em] text-paprika uppercase">
               {category.eyebrow}
@@ -31,14 +37,14 @@ export function CategoryPage({ slug }: { slug: CategorySlug }) {
               {category.description}
             </p>
           </div>
-          <div className="relative mx-auto aspect-[4/5] w-full max-w-56 overflow-hidden rounded-[1.5rem] bg-[#f3eadc] shadow-[0_12px_30px_rgba(48,28,14,0.1)] sm:max-w-xs">
+          <div className="relative aspect-[16/9] overflow-hidden rounded-3xl bg-[#f3eadc] shadow-[0_16px_40px_rgba(48,28,14,0.12)]">
             <Image
-              src={category.image}
-              alt={category.imageAlt}
+              src={category.scene ?? category.image}
+              alt={category.sceneAlt ?? category.imageAlt}
               fill
               priority
-              sizes="280px"
-              className="object-cover"
+              sizes="(min-width: 768px) 46vw, 100vw"
+              className={category.scene ? "object-cover" : "object-contain"}
             />
           </div>
         </Container>
