@@ -187,7 +187,7 @@
   place-items: center;
   background: #16324a;
   color: white;
-  animation: intro-life 4.6s linear forwards;
+  animation: intro-life 2.4s linear forwards;
 }
 
 .winter-intro.is-done {
@@ -195,10 +195,6 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-}
-
-html[data-uvod="1"] .winter-intro {
-  display: none !important;
 }
 
 .snowfield {
@@ -222,10 +218,6 @@ html[data-uvod="1"] .winter-intro {
   bottom: 5.75rem;
   left: 0.75rem;
   max-width: calc(100vw - 1.5rem);
-}
-
-html[data-pahulja="1"] .snowman-fly {
-  display: none !important;
 }
 
 .hero-ticker-track {

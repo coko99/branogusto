@@ -3,14 +3,10 @@
 import Link from "next/link"
 import { X } from "lucide-react"
 
-export function SnowmanFlyer() {
+export function SnowmanFlyer({ onDismiss }: { onDismiss: () => void }) {
   function dismiss() {
-    try {
-      sessionStorage.setItem("branogusto-pahulja", "1")
-    } catch {
-      /* sakrij bar u ovom prikazu */
-    }
-    document.documentElement.dataset.pahulja = "1"
+    delete document.documentElement.dataset.pahulja
+    onDismiss()
   }
 
   return (

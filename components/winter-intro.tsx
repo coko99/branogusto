@@ -10,12 +10,14 @@ const flakes = Array.from({ length: 26 }, (_, index) => ({
   drift: `${(index % 2 === 0 ? -1 : 1) * (20 + (index % 6) * 14)}px`,
 }))
 
-export function WinterIntro() {
+export function WinterIntro({ onDone }: { onDone: () => void }) {
   const done = useRef(false)
 
   useEffect(() => {
     const panel = document.getElementById("zimski-uvod")
-    if (!panel || document.documentElement.dataset.uvod === "1") return
+    if (!panel) return
+    delete document.documentElement.dataset.uvod
+    let handoff = 0
 
     function finish() {
       if (done.current) return
@@ -25,14 +27,7 @@ export function WinterIntro() {
       if (panel?.contains(document.activeElement)) {
         ;(document.activeElement as HTMLElement).blur()
       }
-      window.setTimeout(() => {
-        try {
-          sessionStorage.setItem("branogusto-uvod", "1")
-        } catch {
-          /* ostaje samo u ovom prikazu */
-        }
-        document.documentElement.dataset.uvod = "1"
-      }, 650)
+      handoff = window.setTimeout(onDone, 420)
     }
 
     function onEnd(event: AnimationEvent) {
@@ -43,18 +38,21 @@ export function WinterIntro() {
     panel.addEventListener("animationend", onEnd)
     const skip = panel.querySelector<HTMLButtonElement>("[data-skip]")
     skip?.addEventListener("click", finish)
-    const fallback = window.setTimeout(finish, 5200)
+    const fallback = window.setTimeout(finish, 2800)
     const frame = window.requestAnimationFrame(() => {
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      if (!reduced) return
       const style = window.getComputedStyle(panel)
       if (style.visibility === "hidden" || style.opacity === "0") finish()
     })
     return () => {
       window.clearTimeout(fallback)
+      window.clearTimeout(handoff)
       window.cancelAnimationFrame(frame)
       panel.removeEventListener("animationend", onEnd)
       skip?.removeEventListener("click", finish)
     }
-  }, [])
+  }, [onDone])
 
   return (
     <div

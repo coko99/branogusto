@@ -1,13 +1,11 @@
 import type { Metadata } from "next"
 import { Fraunces, Outfit } from "next/font/google"
-import Script from "next/script"
 
 import { CartProvider } from "@/components/cart-provider"
 import { ChatFab } from "@/components/chat-fab"
 import { SiteChrome } from "@/components/site-chrome"
 import { SiteFooter } from "@/components/site-footer"
-import { SnowmanFlyer } from "@/components/snowman-flyer"
-import { WinterIntro } from "@/components/winter-intro"
+import { WinterSequence } from "@/components/winter-sequence"
 import { site } from "@/lib/site"
 
 import "./globals.css"
@@ -67,11 +65,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${sans.variable} ${display.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
-        <Script id="zimski-znaci" strategy="beforeInteractive">
-          {`try{var s=sessionStorage;if(s.getItem("branogusto-uvod")==="1")document.documentElement.dataset.uvod="1";if(s.getItem("branogusto-pahulja")==="1")document.documentElement.dataset.pahulja="1"}catch(e){}`}
-        </Script>
         <CartProvider>
-          <WinterIntro />
+          <WinterSequence />
           <a
             href="#sadrzaj"
             className="absolute top-4 left-4 z-[70] -translate-y-24 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground focus:translate-y-0"
@@ -83,7 +78,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             {children}
           </main>
           <SiteFooter />
-          <SnowmanFlyer />
           <ChatFab />
         </CartProvider>
         <script
