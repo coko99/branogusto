@@ -8,7 +8,7 @@ import { site } from "@/lib/site"
 export const metadata: Metadata = {
   title: "Kontakt",
   description:
-    "Porudžbine i saradnja sa BraNo Gusto. Pozovite 062 820 70 69 ili pošaljite poruku.",
+    "Zovite 062 820 70 69 ili pišite na info@branogusto.rs. Porudžbina, saradnja, pitanje o tegli.",
   alternates: { canonical: "/kontakt" },
 }
 
@@ -17,11 +17,12 @@ export default function ContactPage() {
     <section className="py-12 md:py-16">
       <Container>
         <p className="text-xs font-semibold tracking-[0.2em] text-paprika uppercase">
-          Javite nam se
+          Pre prvog mraza
         </p>
         <h1 className="mt-3 text-5xl sm:text-6xl md:text-7xl">Kontakt</h1>
         <p className="mt-4 max-w-2xl text-lg leading-8 text-muted-foreground">
-          Za porudžbine, saradnju i dodatne informacije pošaljite nam poruku.
+          Ako tegla treba da krene dok je paprika još priča, javite se. Poziv, poruka ili Instagram —
+          birate kanal, mi držimo ostavu.
         </p>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-[.9fr_1.1fr] lg:gap-10">

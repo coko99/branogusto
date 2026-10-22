@@ -60,7 +60,7 @@ export function CategoryPage({ slug }: { slug: CategorySlug }) {
           <OftenTogether category={slug} />
           <DiscoverNew />
           <p className="mt-10 max-w-2xl text-sm leading-6 text-muted-foreground">
-            Za porudžbinu pozovite{" "}
+            Ako tegla treba da krene još danas, pozovite{" "}
             <a href={site.phoneHref} className="font-semibold text-foreground">
               {site.phoneDisplay}
             </a>{" "}
@@ -68,7 +68,7 @@ export function CategoryPage({ slug }: { slug: CategorySlug }) {
             <Link href="/kontakt" className="font-semibold text-foreground underline-offset-4 hover:underline">
               kontakt stranicu
             </Link>
-            . Na teglama piše: pasterizovano, tradicionalna priprema.
+            . Na poklopcu i dalje piše isto: pasterizovano, tradicionalna priprema.
           </p>
         </Container>
       </section>

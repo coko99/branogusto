@@ -64,11 +64,12 @@ export function Shop() {
         <div className="absolute inset-0 bg-[#f6f1e7]/86" />
         <Container className="relative py-12 md:py-16">
           <p className="text-xs font-semibold tracking-[0.2em] text-paprika uppercase">
-            Zimnica na jednom mestu
+            Police su pune
           </p>
           <h1 className="mt-3 text-5xl sm:text-6xl">Prodavnica</h1>
           <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-            Cene su u dinarima. Preko 5.000 RSD dostava poštom je besplatna — traka iznad prati korpu.
+            Ajvar, džem, sok, somborka. Cene su u dinarima, tegle su stvarne. Kad korpa pređe 5.000 RSD,
+            poštarina otpada — traka iznad broji umesto vas.
           </p>
         </Container>
       </div>

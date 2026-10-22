@@ -5,7 +5,7 @@ import { Shop } from "@/components/shop"
 export const metadata: Metadata = {
   title: "Prodavnica",
   description:
-    "Spremite zimnicu: ajvar, džemovi, matični sokovi i paprika somborka. Preko 5.000 RSD dostava je besplatna.",
+    "Ajvar, džem, matični sok i somborka, sa cenom u dinarima. Preko 5.000 RSD poštarina otpada.",
   alternates: { canonical: "/proizvodi" },
 }
 

@@ -159,6 +159,295 @@
   }
 }
 
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+
+.hero-slide:first-child {
+  opacity: 1;
+}
+
+.hero-slide img {
+  transform: scale(1.14);
+  filter: blur(14px);
+}
+
+.winter-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  background: #16324a;
+  color: white;
+  animation: intro-life 4.6s linear forwards;
+}
+
+.winter-intro.is-done {
+  animation: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+html[data-uvod="1"] .winter-intro {
+  display: none !important;
+}
+
+.snowfield {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.snowflake {
+  position: absolute;
+  top: -12%;
+  color: white;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.75));
+  animation: confetti-fall linear infinite;
+}
+
+.snowman-fly {
+  position: fixed;
+  z-index: 35;
+  bottom: 5.75rem;
+  left: 0.75rem;
+  max-width: calc(100vw - 1.5rem);
+}
+
+html[data-pahulja="1"] .snowman-fly {
+  display: none !important;
+}
+
+.hero-ticker-track {
+  width: max-content;
+  white-space: nowrap;
+}
+
+@keyframes intro-life {
+  0%,
+  74% {
+    opacity: 1;
+    visibility: visible;
+  }
+  88%,
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+@keyframes hero-fade-first {
+  0%,
+  12% {
+    opacity: 1;
+  }
+  18%,
+  90% {
+    opacity: 0;
+  }
+  96%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes hero-fade {
+  0% {
+    opacity: 0;
+  }
+  3%,
+  14% {
+    opacity: 1;
+  }
+  18%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes hero-ken {
+  from {
+    transform: scale(1.12);
+  }
+  to {
+    transform: scale(1.22);
+  }
+}
+
+@keyframes pop-word {
+  0% {
+    opacity: 0;
+    transform: translateY(22px) scale(0.84);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-6px) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes drop-line {
+  0% {
+    opacity: 0;
+    transform: translateY(-32px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes walk-line {
+  0% {
+    opacity: 0;
+    transform: translateX(-12%);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes ticker-walk {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes snowman-fly {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(-2deg);
+  }
+  30% {
+    transform: translate3d(calc(100vw - 19rem), -10vh, 0) rotate(2deg);
+  }
+  55% {
+    transform: translate3d(0.4rem, -26vh, 0) rotate(-3deg);
+  }
+  80% {
+    transform: translate3d(calc(100vw - 22rem), -6vh, 0) rotate(2deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-2deg);
+  }
+}
+
+@keyframes snowman-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes taste-swap {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-slide {
+    opacity: 0;
+    animation: hero-fade 36s infinite;
+  }
+
+  .hero-slide:first-child {
+    animation-name: hero-fade-first;
+  }
+
+  .hero-slide:nth-child(2) {
+    animation-delay: 4.8s;
+  }
+
+  .hero-slide:nth-child(3) {
+    animation-delay: 10.8s;
+  }
+
+  .hero-slide:nth-child(4) {
+    animation-delay: 16.8s;
+  }
+
+  .hero-slide:nth-child(5) {
+    animation-delay: 22.8s;
+  }
+
+  .hero-slide:nth-child(6) {
+    animation-delay: 28.8s;
+  }
+
+  .hero-slide img {
+    animation: hero-ken 36s ease-in-out infinite alternate;
+  }
+
+  .hero-word {
+    display: inline-block;
+    animation: pop-word 0.72s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+
+  .hero-drop {
+    animation: drop-line 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+
+  .hero-walk {
+    animation: walk-line 0.95s 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+
+  .hero-ticker-track {
+    animation: ticker-walk 28s linear infinite;
+  }
+
+  .snowman-fly {
+    animation: snowman-fly 18s ease-in-out infinite;
+  }
+
+  .snowman-bob {
+    animation: snowman-bob 2.6s ease-in-out infinite;
+  }
+
+  .taste-swap {
+    animation: taste-swap 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+
+  @supports (animation-timeline: view()) {
+    .step-reveal {
+      animation: rise-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 32%;
+    }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

@@ -2,31 +2,48 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 
-import { BlurPhoto } from "@/components/blur-photo"
+import { AjvarProcess } from "@/components/ajvar-process"
 import { Container } from "@/components/container"
+import { DayTable } from "@/components/day-table"
+import { HeroSlides } from "@/components/hero-slides"
+import { TastePick } from "@/components/taste-pick"
 import { buttonVariants } from "@/components/ui/button"
 import { recipes } from "@/lib/commerce"
 import { categories, site } from "@/lib/site"
 import { cn } from "cn"
 
+const ticker =
+  "Zima kuca · Ostava odgovara · Ajvar već čeka · Šipurak greje šolju · Somborka pamti njivu · "
+
+const words = ["Je", "l'", "ste", "spremili", "zimnicu?"]
+
 export default function HomePage() {
   return (
     <>
       <section className="relative overflow-hidden text-white">
-        <BlurPhoto src="/images/life/vocnjak.jpg" />
-        <Container className="relative grid items-center gap-10 py-16 md:grid-cols-[1.05fr_.95fr] md:py-24">
+        <HeroSlides />
+        <Container className="relative z-10 grid items-center gap-10 py-16 md:grid-cols-[1.05fr_.95fr] md:py-24">
           <div>
-            <p className="text-xs font-semibold tracking-[0.22em] text-[#d7e6f5] uppercase">
-              Hladno je napolju
+            <p className="hero-drop text-xs font-semibold tracking-[0.22em] text-[#d7e6f5] uppercase">
+              Hladno je napolju. Mi nismo.
             </p>
             <h1 className="mt-4 max-w-xl text-5xl text-white sm:text-6xl md:text-7xl">
-              Je l&apos; ste spremili zimnicu?
+              {words.map((word, index) => (
+                <span key={word}>
+                  <span
+                    className="hero-word"
+                    style={{ animationDelay: `${0.12 + index * 0.12}s` }}
+                  >
+                    {word}
+                  </span>{" "}
+                </span>
+              ))}
             </h1>
-            <p className="mt-5 max-w-lg text-lg leading-8 text-white/80">
-              Sneg može da pada. Ostava ne mora da zjapi prazna. Mi jesmo spremni —
-              ajvar, džemovi, sokovi i somborka već stoje u tegli.
+            <p className="hero-walk mt-5 max-w-lg text-lg leading-8 text-white/80">
+              Sneg sme da pada. Ostava ne sme da zjapi. Ajvar, džem, sok i somborka već stoje iza
+              stakla — vi samo otvorite korpu.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="hero-walk mt-8 flex flex-col gap-3 sm:flex-row" style={{ animationDelay: "0.7s" }}>
               <Link href="/proizvodi" className={cn(buttonVariants(), "h-12 px-6")}>
                 Spremi zimnicu odmah
                 <ArrowRight />
@@ -42,10 +59,13 @@ export default function HomePage() {
               </a>
             </div>
           </div>
-          <div className="relative aspect-[16/9] overflow-hidden rounded-3xl shadow-[0_18px_50px_rgba(0,0,0,0.28)]">
+          <div
+            className="hero-drop relative aspect-[16/9] overflow-hidden rounded-3xl shadow-[0_18px_50px_rgba(0,0,0,0.28)]"
+            style={{ animationDelay: "0.35s" }}
+          >
             <Image
-              src="/images/life/terasa.jpg"
-              alt="Blagi i ljuti ajvar na kamenoj terasi, među paprikama"
+              src="/images/life/zalazak.jpg"
+              alt="Džem od kajsije i ajvar na klupi, u poslednjem svetlu"
               fill
               priority
               sizes="(min-width: 768px) 42vw, 100vw"
@@ -53,6 +73,12 @@ export default function HomePage() {
             />
           </div>
         </Container>
+        <div className="relative z-10 overflow-hidden border-t border-white/15 py-3" aria-hidden="true">
+          <p className="hero-ticker-track flex text-sm font-semibold tracking-[0.18em] text-white/75 uppercase">
+            <span className="px-4">{ticker}</span>
+            <span className="px-4">{ticker}</span>
+          </p>
+        </div>
       </section>
 
       <section>
@@ -67,10 +93,41 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-b border-border bg-[#eef3f7] py-10">
+      <AjvarProcess />
+      <TastePick />
+      <DayTable />
+
+      <section className="py-14 md:py-20">
+        <Container>
+          <p className="text-xs font-semibold tracking-[0.2em] text-paprika uppercase">
+            Ostava u tri broja
+          </p>
+          <h2 className="mt-3 max-w-2xl text-4xl sm:text-5xl">Ne listajte katalog. Gledajte šta stane.</h2>
+          <ul className="mt-8 grid gap-4 sm:grid-cols-3">
+            <li className="rounded-3xl border border-border bg-card p-6">
+              <p className="font-heading text-6xl text-paprika">2</p>
+              <h3 className="mt-3 text-2xl">lica ajvara</h3>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">Blagi i ljuti. 375 i 700 g.</p>
+            </li>
+            <li className="rounded-3xl border border-border bg-card p-6">
+              <p className="font-heading text-6xl text-paprika">4</p>
+              <h3 className="mt-3 text-2xl">voća u tegli</h3>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">Šipurak, šljiva, jagoda, kajsija.</p>
+            </li>
+            <li className="rounded-3xl border border-border bg-[#16324a] p-6 text-white">
+              <p className="font-heading text-6xl text-[#f6e7a8]">5.000</p>
+              <h3 className="mt-3 text-2xl">dinara, pa pošta ćuti</h3>
+              <p className="mt-2 text-sm leading-6 text-white/75">Preko toga dostava je besplatna.</p>
+            </li>
+          </ul>
+        </Container>
+      </section>
+
+      <section className="border-y border-border bg-[#eef3f7] py-10">
         <Container className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <p className="max-w-xl text-lg leading-8 text-[#1c3144]">
-            Mi držimo toplotu u tegli. Složite korpu — preko 5.000 RSD dostava je besplatna.
+            Termometar pada. Naša ostava ne. Složite korpu pre nego što komšija pokupi poslednju
+            ljutu.
           </p>
           <Link href="/proizvodi" className={cn(buttonVariants(), "h-11 px-5")}>
             U prodavnicu
@@ -81,9 +138,9 @@ export default function HomePage() {
       <section className="py-14 md:py-20">
         <Container>
           <p className="text-xs font-semibold tracking-[0.2em] text-paprika uppercase">
-            Šta vas čeka
+            Četiri police
           </p>
-          <h2 className="mt-3 text-4xl sm:text-5xl">Zimnica, već spremljena.</h2>
+          <h2 className="mt-3 text-4xl sm:text-5xl">Jedna ostava, četiri navike.</h2>
           <ul className="mt-8 grid grid-cols-2 gap-3 lg:grid-cols-4">
             {categories.map((category) => (
               <li key={category.slug}>
@@ -115,19 +172,32 @@ export default function HomePage() {
 
       <section className="border-t border-border bg-[#eef3f7] py-14 md:py-20">
         <Container>
-          <p className="text-xs font-semibold tracking-[0.2em] text-paprika uppercase">Šta danas spremamo</p>
-          <h2 className="mt-3 text-4xl sm:text-5xl">Recepti uz naše tegle.</h2>
+          <p className="text-xs font-semibold tracking-[0.2em] text-paprika uppercase">
+            Šta danas spremamo
+          </p>
+          <h2 className="mt-3 text-4xl sm:text-5xl">Tegla odradi pola ručka.</h2>
           <ul className="mt-8 grid gap-3 sm:grid-cols-3">
             {recipes.slice(0, 3).map((recipe) => {
               return (
                 <li key={recipe.slug}>
-                  <Link href={`/recepti/${recipe.slug}`} className="block overflow-hidden rounded-2xl border border-border bg-card">
+                  <Link
+                    href={`/recepti/${recipe.slug}`}
+                    className="block overflow-hidden rounded-2xl border border-border bg-card"
+                  >
                     <div className="relative aspect-[4/3] bg-[#f3eadc]">
-                      <Image src={recipe.image} alt={recipe.imageAlt} fill sizes="(min-width: 640px) 30vw, 100vw" className="object-cover" />
+                      <Image
+                        src={recipe.image}
+                        alt={recipe.imageAlt}
+                        fill
+                        sizes="(min-width: 640px) 30vw, 100vw"
+                        className="object-cover"
+                      />
                     </div>
                     <div className="p-4">
                       <h3 className="text-2xl">{recipe.title}</h3>
-                      <p className="mt-1 line-clamp-2 text-sm leading-6 text-muted-foreground">{recipe.lead}</p>
+                      <p className="mt-1 line-clamp-2 text-sm leading-6 text-muted-foreground">
+                        {recipe.lead}
+                      </p>
                     </div>
                   </Link>
                 </li>

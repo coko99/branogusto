@@ -17,7 +17,7 @@ export function SiteFooter() {
             className="h-16 w-auto"
           />
           <p className="mt-4 max-w-sm text-sm leading-6 text-muted-foreground">
-            Ukusi domaće radinosti, pripremljeni od pažljivo odabranih sastojaka.
+            Paprika, voće i staklo. Zima može da kuca — ostava već ima odgovor.
           </p>
         </div>
         <div>

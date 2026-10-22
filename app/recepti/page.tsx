@@ -8,7 +8,8 @@ import { recipes } from "@/lib/commerce"
 
 export const metadata: Metadata = {
   title: "Recepti",
-  description: "Ideje za ručak i doručak u kojima se koriste ajvar, džemovi, sokovi i somborka BraNo Gusto.",
+  description:
+    "Ručkovi u kojima tegla odradi pola posla: ajvar u pasti, šljiva u palačinki, borovnica u jogurtu.",
   alternates: { canonical: "/recepti" },
 }
 
@@ -17,10 +18,11 @@ export default function RecipesPage() {
     <section className="relative overflow-hidden py-12 md:py-16">
       <BlurPhoto src="/images/life/vocnjak.jpg" tint="light" />
       <Container className="relative">
-        <p className="text-xs font-semibold tracking-[0.18em] text-paprika uppercase">Iz ostave</p>
+        <p className="text-xs font-semibold tracking-[0.18em] text-paprika uppercase">Iz ostave, na sto</p>
         <h1 className="mt-3 text-5xl sm:text-6xl">Recepti</h1>
         <p className="mt-4 max-w-2xl text-lg leading-8 text-muted-foreground">
-          Predlozi u kojima naši proizvodi rade posao. Pored svakog recepta možete odmah da stavite tegle u korpu.
+          Nisu recepti iz časopisa. Ručkovi u kojima tegla odradi pola posla: ajvar u pasti, šljiva u
+          palačinki, borovnica u jogurtu. Pored svakog možete odmah da stavite tegle u korpu.
         </p>
         <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {recipes.map((recipe) => {
