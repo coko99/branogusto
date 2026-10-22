@@ -22,55 +22,40 @@ export default function HomePage() {
     <>
       <section className="relative overflow-hidden text-white">
         <HeroSlides />
-        <Container className="relative z-10 grid items-center gap-10 py-16 md:grid-cols-[1.05fr_.95fr] md:py-24">
-          <div>
-            <p className="hero-drop text-xs font-semibold tracking-[0.22em] text-[#d7e6f5] uppercase">
-              Hladno je napolju. Mi nismo.
-            </p>
-            <h1 className="mt-4 max-w-xl text-5xl text-white sm:text-6xl md:text-7xl">
-              {words.map((word, index) => (
-                <span key={word}>
-                  <span
-                    className="hero-word"
-                    style={{ animationDelay: `${0.12 + index * 0.12}s` }}
-                  >
-                    {word}
-                  </span>{" "}
-                </span>
-              ))}
-            </h1>
-            <p className="hero-walk mt-5 max-w-lg text-lg leading-8 text-white/80">
-              Sneg sme da pada. Ostava ne sme da zjapi. Ajvar, džem, sok i somborka već stoje iza
-              stakla — vi samo otvorite korpu.
-            </p>
-            <div className="hero-walk mt-8 flex flex-col gap-3 sm:flex-row" style={{ animationDelay: "0.7s" }}>
-              <Link href="/proizvodi" className={cn(buttonVariants(), "h-12 px-6")}>
-                Spremi zimnicu odmah
-                <ArrowRight />
-              </Link>
-              <a
-                href={site.phoneHref}
-                className={cn(
-                  buttonVariants({ variant: "outline" }),
-                  "h-12 border-white/30 bg-white/10 px-6 text-white hover:bg-white hover:text-ink"
-                )}
-              >
-                Pozovi nas
-              </a>
-            </div>
-          </div>
-          <div
-            className="hero-drop relative aspect-[16/9] overflow-hidden rounded-3xl shadow-[0_18px_50px_rgba(0,0,0,0.28)]"
-            style={{ animationDelay: "0.35s" }}
-          >
-            <Image
-              src="/images/life/zalazak.jpg"
-              alt="Džem od kajsije i ajvar na klupi, u poslednjem svetlu"
-              fill
-              priority
-              sizes="(min-width: 768px) 42vw, 100vw"
-              className="object-cover"
-            />
+        <Container className="relative z-10 py-16 md:py-24">
+          <p className="hero-drop text-xs font-semibold tracking-[0.22em] text-[#d7e6f5] uppercase">
+            Hladno je napolju. Mi nismo.
+          </p>
+          <h1 className="mt-4 max-w-xl text-5xl text-white sm:text-6xl md:text-7xl">
+            {words.map((word, index) => (
+              <span key={word}>
+                <span
+                  className="hero-word"
+                  style={{ animationDelay: `${0.12 + index * 0.12}s` }}
+                >
+                  {word}
+                </span>{" "}
+              </span>
+            ))}
+          </h1>
+          <p className="hero-walk mt-5 max-w-lg text-lg leading-8 text-white/80">
+            Sneg sme da pada. Ostava ne sme da zjapi. Ajvar, džem, sok i somborka već stoje iza
+            stakla — vi samo otvorite korpu.
+          </p>
+          <div className="hero-walk mt-8 flex flex-col gap-3 sm:flex-row" style={{ animationDelay: "0.7s" }}>
+            <Link href="/proizvodi" className={cn(buttonVariants(), "h-12 px-6")}>
+              Spremi zimnicu odmah
+              <ArrowRight />
+            </Link>
+            <a
+              href={site.phoneHref}
+              className={cn(
+                buttonVariants({ variant: "outline" }),
+                "h-12 border-white/30 bg-white/10 px-6 text-white hover:bg-white hover:text-ink"
+              )}
+            >
+              Pozovi nas
+            </a>
           </div>
         </Container>
         <div className="relative z-10 overflow-hidden border-t border-white/15 py-3" aria-hidden="true">
