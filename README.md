@@ -36,4 +36,4 @@ Ili iz terminala, posle `npx vercel login`:
 npx vercel
 ```
 
-U meniju je „Najčešća pitanja” (`/pitanja`). Isti deo stoji i na početnoj i na kontaktu: porudžbina, dostava, poštarina, popust, paketi, asortiman. Kontakt forma otvara program za email posetioca ka `info@branogusto.rs`. Korpa ne šalje porudžbinu dok slanje ne bude povezano: slaže je na ekranu, sa kuponom, adresom i izborom pošte ili preuzimanja u Kruševcu i Beogradu. Besplatna dostava je preko 5.000 RSD. Kupon za probu: `ZIMNICA10`. Plutajuće dugme nudi poruku, SMS, poziv, WhatsApp i Viber.
+Ulaz traži pin `1706` dok je sajt na dolasku. Tačan pin se pamti u kolačiću 30 dana. U meniju je „Najčešća pitanja” (`/pitanja`). Isti deo stoji i na početnoj i na kontaktu: porudžbina, dostava, poštarina, popust, paketi, asortiman. Kontakt forma otvara program za email posetioca ka `info@branogusto.rs`. Korpa ne šalje porudžbinu dok slanje ne bude povezano: slaže je na ekranu, sa kuponom, adresom i izborom pošte ili preuzimanja u Kruševcu i Beogradu. Besplatna dostava je preko 5.000 RSD. Kupon za probu: `ZIMNICA10`. Plutajuće dugme nudi poruku, SMS, poziv, WhatsApp i Viber.

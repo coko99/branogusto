@@ -135,6 +135,9 @@
   body {
     @apply bg-background text-foreground;
   }
+  html[data-ulaz="da"] .site-gate {
+    display: none;
+  }
   h1,
   h2,
   h3 {

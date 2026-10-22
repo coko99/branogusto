@@ -1,11 +1,15 @@
 import type { Metadata } from "next"
 import { Fraunces, Outfit } from "next/font/google"
+import { Suspense } from "react"
 
 import { CartProvider } from "@/components/cart-provider"
 import { ChatFab } from "@/components/chat-fab"
+import { EntrySwitch } from "@/components/entry-switch"
+import { ComingSoon } from "@/components/site-entry"
 import { SiteChrome } from "@/components/site-chrome"
 import { SiteFooter } from "@/components/site-footer"
 import { WinterSequence } from "@/components/winter-sequence"
+import { ENTRY_COOKIE } from "@/lib/entry"
 import { site } from "@/lib/site"
 
 import "./globals.css"
@@ -66,6 +70,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${sans.variable} ${display.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(document.cookie.split("; ").indexOf("${ENTRY_COOKIE}=da")!==-1)document.documentElement.dataset.ulaz="da"}catch(e){}`,
+          }}
+        />
+        <Suspense fallback={<ComingSoon />}>
+        <EntrySwitch>
         <CartProvider>
           <WinterSequence />
           <a
@@ -81,6 +92,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <SiteFooter />
           <ChatFab />
         </CartProvider>
+        </EntrySwitch>
+        </Suspense>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
