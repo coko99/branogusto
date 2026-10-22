@@ -21,8 +21,8 @@ export default function RecipesPage() {
         <p className="text-xs font-semibold tracking-[0.18em] text-paprika uppercase">Iz ostave, na sto</p>
         <h1 className="mt-3 text-5xl sm:text-6xl">Recepti</h1>
         <p className="mt-4 max-w-2xl text-lg leading-8 text-muted-foreground">
-          Nisu recepti iz časopisa. Ručkovi u kojima tegla odradi pola posla: ajvar u pasti, šljiva u
-          palačinki, borovnica u jogurtu. Pored svakog možete odmah da stavite tegle u korpu.
+          Svaki recept ovde završava se isto: tegla u korpi. Ajvar na pastu, šljiva na palačinku,
+          borovnica u jogurt. Kuvanje može da sačeka. Kupovina ne.
         </p>
         <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {recipes.map((recipe) => {

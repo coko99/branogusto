@@ -68,8 +68,8 @@ export function Shop() {
           </p>
           <h1 className="mt-3 text-5xl sm:text-6xl">Prodavnica</h1>
           <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-            Ajvar, džem, sok, somborka. Cene su u dinarima, tegle su stvarne. Kad korpa pređe 5.000 RSD,
-            poštarina otpada — traka iznad broji umesto vas.
+            Prestani da razgledaš. Cene su u dinarima, tegle su stvarne. Kad korpa pređe 5.000 RSD,
+            poštarina otpada — traka iznad te vuče dok ne pređeš.
           </p>
         </Container>
       </div>

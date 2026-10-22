@@ -176,7 +176,7 @@ export function CartPage() {
       <div className="mx-auto max-w-xl">
         <h1 className="text-5xl">Korpa</h1>
         <p className="mt-4 leading-7 text-muted-foreground">
-          Tegle još nisu u korpi. U prodavnici složite zimnicu, pa se vratite ovde na podatke za slanje.
+          Korpa je prazna, a zima nije. Vrati se u prodavnicu i uzmi bar jednu teglu pre nego što se predomisliš.
         </p>
         <Link href="/proizvodi" className={cn(buttonVariants(), "mt-6 h-11 px-5")}>
           U prodavnicu

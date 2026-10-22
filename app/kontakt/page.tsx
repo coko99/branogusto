@@ -21,8 +21,8 @@ export default function ContactPage() {
         </p>
         <h1 className="mt-3 text-5xl sm:text-6xl md:text-7xl">Kontakt</h1>
         <p className="mt-4 max-w-2xl text-lg leading-8 text-muted-foreground">
-          Ako tegla treba da krene dok je paprika još priča, javite se. Poziv, poruka ili Instagram —
-          birate kanal, mi držimo ostavu.
+          Ako hoćeš teglu pre prvog mraza, ne ostavljaj to za sutra. Pozovi, piši, ili složi korpu pa
+          se javi dok je još ima.
         </p>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-[.9fr_1.1fr] lg:gap-10">
@@ -39,7 +39,7 @@ export default function ContactPage() {
             <p className="text-xs font-semibold tracking-[0.2em] text-[#f6e7a8] uppercase">
               BraNo Gusto
             </p>
-            <h2 className="mt-3 text-4xl text-white sm:text-5xl">Tu smo za vas.</h2>
+            <h2 className="mt-3 text-4xl text-white sm:text-5xl">Javi se pre nego što tegla ode.</h2>
             <a href={site.phoneHref} className="mt-6 block font-display text-3xl hover:text-[#f6e7a8]">
               {site.phoneDisplay}
             </a>

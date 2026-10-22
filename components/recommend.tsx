@@ -91,7 +91,7 @@ export function OftenTogether({
         Kupci često biraju zajedno
       </h2>
       <p className="mt-2 max-w-xl text-sm leading-6 text-muted-foreground">
-        Parovi nisu slučajni: ajvar voli somborku, džem voli sir, sok voli jogurt.
+        Ko uzme jednu teglu retko stane. Druga ide uz nju — stavi je dok si još tu.
       </p>
       <ul className="mt-4 grid gap-2 sm:grid-cols-2">
         {picks.map((product) => (

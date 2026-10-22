@@ -10,11 +10,11 @@ export default function NotFound() {
       <p className="text-xs font-semibold tracking-[0.2em] text-paprika uppercase">404</p>
       <h1 className="mt-3 text-5xl sm:text-6xl">Ova stranica ne postoji.</h1>
       <p className="mt-4 max-w-md text-lg leading-8 text-muted-foreground">
-        Traženi ukus nije na ovoj adresi. Vratite se na ponudu ili nam se javite.
+        Ova strana je prazna. Ostava nije. Vrati se tamo gde se tegle stavljaju u korpu.
       </p>
       <div className="mt-8 flex flex-col gap-3 sm:flex-row">
         <Link href="/proizvodi" className={cn(buttonVariants(), "h-11 px-5")}>
-          Naši proizvodi
+          U prodavnicu
         </Link>
         <Link href="/" className={cn(buttonVariants({ variant: "outline" }), "h-11 px-5")}>
           Početna

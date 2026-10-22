@@ -4,8 +4,9 @@ import { ArrowRight } from "lucide-react"
 
 import { AjvarProcess } from "@/components/ajvar-process"
 import { Container } from "@/components/container"
-import { DayTable } from "@/components/day-table"
+import { GuestNight } from "@/components/guest-night"
 import { HeroSlides } from "@/components/hero-slides"
+import { PantryGap } from "@/components/pantry-gap"
 import { TastePick } from "@/components/taste-pick"
 import { buttonVariants } from "@/components/ui/button"
 import { recipes } from "@/lib/commerce"
@@ -13,7 +14,7 @@ import { categories, site } from "@/lib/site"
 import { cn } from "cn"
 
 const ticker =
-  "Zima kuca · Ostava odgovara · Ajvar već čeka · Šipurak greje šolju · Somborka pamti njivu · "
+  "Uzmi blagi · Uzmi ljuti · Šipurak u šolju · Somborka u sendvič · Preko 5.000 dostava ćuti · "
 
 const words = ["Je", "l'", "ste", "spremili", "zimnicu?"]
 
@@ -39,8 +40,8 @@ export default function HomePage() {
             ))}
           </h1>
           <p className="hero-walk mt-5 max-w-lg text-lg leading-8 text-white/80">
-            Sneg sme da pada. Ostava ne sme da zjapi. Ajvar, džem, sok i somborka već stoje iza
-            stakla — vi samo otvorite korpu.
+            Sneg sme da pada. Tvoja korpa ne sme da čeka. Ajvar, džem, sok i somborka su već u
+            tegli — ostaje samo da ih uzmeš.
           </p>
           <div className="hero-walk mt-8 flex flex-col gap-3 sm:flex-row" style={{ animationDelay: "0.7s" }}>
             <Link href="/proizvodi" className={cn(buttonVariants(), "h-12 px-6")}>
@@ -80,29 +81,36 @@ export default function HomePage() {
 
       <AjvarProcess />
       <TastePick />
-      <DayTable />
+      <GuestNight />
+      <PantryGap />
 
       <section className="py-14 md:py-20">
         <Container>
           <p className="text-xs font-semibold tracking-[0.2em] text-paprika uppercase">
-            Ostava u tri broja
+            Tri razloga da korpa ne ostane prazna
           </p>
-          <h2 className="mt-3 max-w-2xl text-4xl sm:text-5xl">Ne listajte katalog. Gledajte šta stane.</h2>
+          <h2 className="mt-3 max-w-2xl text-4xl sm:text-5xl">Uzmi pre nego što zima uzme reč.</h2>
           <ul className="mt-8 grid gap-4 sm:grid-cols-3">
             <li className="rounded-3xl border border-border bg-card p-6">
               <p className="font-heading text-6xl text-paprika">2</p>
               <h3 className="mt-3 text-2xl">lica ajvara</h3>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">Blagi i ljuti. 375 i 700 g.</p>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                Blagi za hleb. Ljuti za one koji ne mere. Uzmi oba, pa vidi koji nestane prvi.
+              </p>
             </li>
             <li className="rounded-3xl border border-border bg-card p-6">
               <p className="font-heading text-6xl text-paprika">4</p>
               <h3 className="mt-3 text-2xl">voća u tegli</h3>
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">Šipurak, šljiva, jagoda, kajsija.</p>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                Šipurak, šljiva, jagoda, kajsija. Jedan džem je navika. Četiri su ostava.
+              </p>
             </li>
             <li className="rounded-3xl border border-border bg-[#16324a] p-6 text-white">
               <p className="font-heading text-6xl text-[#f6e7a8]">5.000</p>
               <h3 className="mt-3 text-2xl">dinara, pa pošta ćuti</h3>
-              <p className="mt-2 text-sm leading-6 text-white/75">Preko toga dostava je besplatna.</p>
+              <p className="mt-2 text-sm leading-6 text-white/75">
+                Kad korpa pređe ovo, poštarina otpada. Traka iznad broji umesto tebe.
+              </p>
             </li>
           </ul>
         </Container>
@@ -111,8 +119,7 @@ export default function HomePage() {
       <section className="border-y border-border bg-[#eef3f7] py-10">
         <Container className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <p className="max-w-xl text-lg leading-8 text-[#1c3144]">
-            Termometar pada. Naša ostava ne. Složite korpu pre nego što komšija pokupi poslednju
-            ljutu.
+            Ne čekaj prvi mraz da se setiš. Ko ostavi korpu praznu, jede tuđu zimnicu.
           </p>
           <Link href="/proizvodi" className={cn(buttonVariants(), "h-11 px-5")}>
             U prodavnicu
@@ -125,7 +132,7 @@ export default function HomePage() {
           <p className="text-xs font-semibold tracking-[0.2em] text-paprika uppercase">
             Četiri police
           </p>
-          <h2 className="mt-3 text-4xl sm:text-5xl">Jedna ostava, četiri navike.</h2>
+          <h2 className="mt-3 text-4xl sm:text-5xl">Izaberi policu. Tegla neće sama u korpu.</h2>
           <ul className="mt-8 grid grid-cols-2 gap-3 lg:grid-cols-4">
             {categories.map((category) => (
               <li key={category.slug}>
@@ -160,7 +167,7 @@ export default function HomePage() {
           <p className="text-xs font-semibold tracking-[0.2em] text-paprika uppercase">
             Šta danas spremamo
           </p>
-          <h2 className="mt-3 text-4xl sm:text-5xl">Tegla odradi pola ručka.</h2>
+          <h2 className="mt-3 max-w-2xl text-4xl sm:text-5xl">Ne znaš šta da kuvaš? Kupi teglu. Recept ide uz nju.</h2>
           <ul className="mt-8 grid gap-3 sm:grid-cols-3">
             {recipes.slice(0, 3).map((recipe) => {
               return (

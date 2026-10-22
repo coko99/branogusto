@@ -60,7 +60,7 @@ export function CategoryPage({ slug }: { slug: CategorySlug }) {
           <OftenTogether category={slug} />
           <DiscoverNew />
           <p className="mt-10 max-w-2xl text-sm leading-6 text-muted-foreground">
-            Ako tegla treba da krene još danas, pozovite{" "}
+            Ako ti tegla treba još danas, ne čekaj. Pozovi{" "}
             <a href={site.phoneHref} className="font-semibold text-foreground">
               {site.phoneDisplay}
             </a>{" "}
