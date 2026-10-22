@@ -36,4 +36,4 @@ Ili iz terminala, posle `npx vercel login`:
 npx vercel
 ```
 
-Kontakt forma otvara program za email posetioca ka `info@branogusto.rs`. Korpa ne šalje porudžbinu dok slanje ne bude povezano: slaže je na ekranu, sa kuponom, adresom i izborom pošte ili preuzimanja u Kruševcu i Beogradu. Besplatna dostava je preko 5.000 RSD. Kupon za probu: `ZIMNICA10`. Plutajuće dugme nudi poruku, SMS, poziv, WhatsApp i Viber.
+Na početnoj i na kontaktu je deo „Najčešća pitanja”: porudžbina, dostava, poštarina, popust, paketi, asortiman. Kontakt forma otvara program za email posetioca ka `info@branogusto.rs`. Korpa ne šalje porudžbinu dok slanje ne bude povezano: slaže je na ekranu, sa kuponom, adresom i izborom pošte ili preuzimanja u Kruševcu i Beogradu. Besplatna dostava je preko 5.000 RSD. Kupon za probu: `ZIMNICA10`. Plutajuće dugme nudi poruku, SMS, poziv, WhatsApp i Viber.

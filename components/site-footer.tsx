@@ -48,6 +48,11 @@ export function SiteFooter() {
                 Korpa
               </Link>
             </li>
+            <li>
+              <Link href="/#pitanja" className="text-muted-foreground hover:text-foreground">
+                Najčešća pitanja
+              </Link>
+            </li>
           </ul>
         </div>
         <div>

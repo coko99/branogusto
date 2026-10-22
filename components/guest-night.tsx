@@ -58,7 +58,7 @@ export function GuestNight() {
   const total = products.reduce((sum, product) => sum + product.price, 0)
 
   return (
-    <section className="border-y border-border bg-[#eef3f7] py-12 md:py-16">
+    <section id="sto" className="scroll-mt-32 border-y border-border bg-[#eef3f7] py-12 md:py-16">
       <Container>
         <p className="text-xs font-semibold tracking-[0.2em] text-paprika uppercase">Igra za korpu</p>
         <h2 className="mt-3 max-w-2xl text-4xl sm:text-5xl">Ko ti večeras seda za sto?</h2>

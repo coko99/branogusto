@@ -3,6 +3,7 @@ import Image from "next/image"
 
 import { ContactForm } from "@/components/contact-form"
 import { Container } from "@/components/container"
+import { FaqSection } from "@/components/faq"
 import { site } from "@/lib/site"
 
 export const metadata: Metadata = {
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
+    <>
     <section className="py-12 md:py-16">
       <Container>
         <p className="text-xs font-semibold tracking-[0.2em] text-paprika uppercase">
@@ -61,5 +63,7 @@ export default function ContactPage() {
         </div>
       </Container>
     </section>
+    <FaqSection />
+    </>
   )
 }

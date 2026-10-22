@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react"
 
 import { AjvarProcess } from "@/components/ajvar-process"
 import { Container } from "@/components/container"
+import { FaqSection } from "@/components/faq"
 import { GuestNight } from "@/components/guest-night"
 import { HeroSlides } from "@/components/hero-slides"
 import { Packs } from "@/components/packs"
@@ -208,6 +209,8 @@ export default function HomePage() {
           </Link>
         </Container>
       </section>
+
+      <FaqSection />
     </>
   )
 }
