@@ -94,7 +94,7 @@ export function SiteFooter() {
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2.5 rounded-full outline-none focus-visible:ring-2 focus-visible:ring-[#7af7ff]"
-            aria-label="Powered by cokoladni. Otvori cokoladni.photo"
+            aria-label="Powered by čokoladni. Otvori cokoladni.photo"
           >
             <Image
               src="/images/cokoladni.png"
@@ -108,7 +108,7 @@ export function SiteFooter() {
               <span className="block text-[0.6rem] font-medium tracking-[0.18em] text-[#9adfe6] uppercase">
                 Powered by
               </span>
-              <span className="text-sm font-medium tracking-wide text-white">cokoladni</span>
+              <span className="text-sm font-medium tracking-wide text-white">čokoladni</span>
             </span>
           </a>
         </Container>
