@@ -218,10 +218,6 @@
   max-width: calc(100vw - 1.5rem);
 }
 
-.coko-glow {
-  filter: drop-shadow(0 0 8px #7af7ff) drop-shadow(0 0 18px #18d6ea);
-}
-
 .hero-ticker-track {
   width: max-content;
   white-space: nowrap;
@@ -343,16 +339,6 @@
   }
 }
 
-@keyframes coko-glow {
-  0%,
-  100% {
-    filter: drop-shadow(0 0 6px #9efbff) drop-shadow(0 0 16px #1ad4ea);
-  }
-  50% {
-    filter: drop-shadow(0 0 14px #f3ffff) drop-shadow(0 0 34px #3df6ff);
-  }
-}
-
 @keyframes snowman-bob {
   0%,
   100% {
@@ -456,10 +442,6 @@
 
   .snowman-bob {
     animation: snowman-bob 2.6s ease-in-out infinite;
-  }
-
-  .coko-glow {
-    animation: coko-glow 2.6s ease-in-out infinite;
   }
 
   .taste-swap {

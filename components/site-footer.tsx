@@ -88,25 +88,29 @@ export function SiteFooter() {
         </p>
       </Container>
       <div className="bg-black text-white">
-        <Container className="flex items-center justify-center gap-3 py-4 pr-16 sm:pr-6">
-          <Image
-            src="/images/cokoladni.png"
-            alt=""
-            width={360}
-            height={360}
-            className="coko-glow size-20 sm:size-24"
-          />
-          <p className="leading-tight">
-            <span className="block text-[0.65rem] font-semibold tracking-[0.22em] text-[#bffcff] uppercase">
-              Powered by
+        <Container className="flex justify-center py-2.5 pr-14 sm:pr-6">
+          <a
+            href="https://cokoladni.photo/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2.5 rounded-full outline-none focus-visible:ring-2 focus-visible:ring-[#7af7ff]"
+            aria-label="Powered by cokoladni. Otvori cokoladni.photo"
+          >
+            <Image
+              src="/images/cokoladni.png"
+              alt=""
+              width={320}
+              height={320}
+              unoptimized
+              className="size-10"
+            />
+            <span className="leading-tight">
+              <span className="block text-[0.6rem] font-medium tracking-[0.18em] text-[#9adfe6] uppercase">
+                Powered by
+              </span>
+              <span className="text-sm font-medium tracking-wide text-white">cokoladni</span>
             </span>
-            <span
-              className="text-lg font-semibold tracking-wide text-white"
-              style={{ textShadow: "0 0 12px #3df6ff, 0 0 28px #14d4e6" }}
-            >
-              cokoladni
-            </span>
-          </p>
+          </a>
         </Container>
       </div>
     </footer>
