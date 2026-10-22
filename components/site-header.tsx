@@ -20,7 +20,8 @@ import { nav, site } from "@/lib/site"
 import { cn } from "cn"
 
 function isCurrent(pathname: string, href: string) {
-  return pathname === href
+  if (href === "/") return pathname === "/"
+  return pathname === href || pathname.startsWith(`${href}/`)
 }
 
 export function SiteHeader() {
@@ -41,7 +42,7 @@ export function SiteHeader() {
           />
         </Link>
 
-        <nav className="ml-auto hidden items-center gap-3 xl:gap-4 lg:flex" aria-label="Glavni meni">
+        <nav className="ml-auto hidden items-center gap-5 md:flex" aria-label="Glavni meni">
           {nav.map((item) => (
             <Link
               key={item.href}
@@ -100,7 +101,7 @@ export function SiteHeader() {
           <SheetTrigger
             className={cn(
               buttonVariants({ variant: "outline", size: "icon" }),
-              "size-11 lg:hidden"
+              "size-11 md:hidden"
             )}
             aria-label="Otvori meni"
           >

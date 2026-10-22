@@ -19,10 +19,6 @@ export const site = {
 export const nav = [
   { href: "/", label: "Početna" },
   { href: "/proizvodi", label: "Prodavnica" },
-  { href: "/ajvari", label: "Ajvari" },
-  { href: "/dzemovi", label: "Džemovi" },
-  { href: "/sokovi", label: "Sokovi" },
-  { href: "/somborka", label: "Somborka" },
   { href: "/recepti", label: "Recepti" },
   { href: "/kontakt", label: "Kontakt" },
 ] as const
