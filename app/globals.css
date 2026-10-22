@@ -215,8 +215,6 @@
 .snowman-fly {
   position: fixed;
   z-index: 35;
-  bottom: 5.75rem;
-  left: 0.75rem;
   max-width: calc(100vw - 1.5rem);
 }
 
