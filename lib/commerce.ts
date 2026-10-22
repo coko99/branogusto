@@ -41,6 +41,12 @@ export const packs = [
     productSlugs: ["dzem-sipurak", "pekmez-sljiva", "dzem-jagoda", "dzem-kajsija"],
   },
   {
+    slug: "iz-baste",
+    name: "Iz bašte",
+    line: "Cvekla, kornišoni i filet. Tri tegle iz bašte.",
+    productSlugs: ["cvekla-barena", "kornisoni-i", "paprika-fileti"],
+  },
+  {
     slug: "ostava-pre-mraza",
     name: "Ostava pre mraza",
     line: "Oba ajvara, šipurak, kajsija, somborka i borovnica.",
@@ -83,6 +89,12 @@ const boughtTogether: Record<string, string[]> = {
   "sok-aronija": ["dzem-sipurak", "ajvar-ljuti-700"],
   "sok-borovnica": ["dzem-jagoda", "ajvar-blagi-700"],
   somborka: ["ajvar-blagi-700", "ajvar-ljuti-700", "dzem-kajsija"],
+  "paprika-fileti": ["ajvar-blagi-700", "sok-paradajz"],
+  "peckana-paprika": ["ajvar-ljuti-700", "somborka"],
+  "cvekla-barena": ["kornisoni-i", "somborka"],
+  "kornisoni-i": ["peckana-paprika", "cvekla-barena"],
+  "kornisoni-ii": ["cvekla-barena", "somborka"],
+  "sok-paradajz": ["cvekla-barena", "kornisoni-i"],
 }
 
 export type Recipe = {

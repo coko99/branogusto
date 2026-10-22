@@ -138,10 +138,10 @@ export default function HomePage() {
       <section className="py-14 md:py-20">
         <Container>
           <p className="text-xs font-semibold tracking-[0.2em] text-paprika uppercase">
-            Četiri police
+            Pet polica
           </p>
           <h2 className="mt-3 text-4xl sm:text-5xl">Izaberi policu. Tegla neće sama u korpu.</h2>
-          <ul className="mt-8 grid grid-cols-2 gap-3 lg:grid-cols-4">
+          <ul className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-5">
             {categories.map((category) => (
               <li key={category.slug}>
                 <Link
@@ -163,6 +163,42 @@ export default function HomePage() {
                       {category.description}
                     </p>
                   </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
+
+      <section className="border-t border-border py-14 md:py-20">
+        <Container>
+          <p className="text-xs font-semibold tracking-[0.2em] text-paprika uppercase">Iz bašte</p>
+          <h2 className="mt-3 max-w-2xl text-4xl sm:text-5xl">Nove tegle. Iste njive.</h2>
+          <p className="mt-3 max-w-xl text-base leading-7 text-muted-foreground">
+            Cvekla, kornišoni, fileti, peckana paprika i sok od paradajza. Ubrane, pa u teglu.
+          </p>
+          <ul className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+            {[
+              ["/images/life/cvekla.jpg", "Barena cvekla u bašti", "/zimnica", "Cvekla"],
+              ["/images/life/kornisoni-i.jpg", "Kornišoni I klase među krastavcima", "/zimnica", "Kornišoni"],
+              ["/images/life/kornisoni-ii.jpg", "Kornišoni II klase u bašti", "/zimnica", "II klasa"],
+              ["/images/life/paprika-fileti.jpg", "Fileti crvene paprike u bašti", "/zimnica", "Fileti"],
+              ["/images/life/peckana.jpg", "Ljuta peckana paprika u bašti", "/zimnica", "Peckana"],
+              ["/images/life/somborka-basta.jpg", "Somborka među paprikama", "/somborka", "Somborka"],
+              ["/images/life/sok-paradajz.jpg", "Sok od paradajza među paradajzom", "/sokovi", "Paradajz"],
+            ].map(([src, alt, href, name]) => (
+              <li key={src}>
+                <Link href={href} className="group block overflow-hidden rounded-2xl border border-border bg-card">
+                  <div className="relative aspect-square bg-[#f3eadc]">
+                    <Image
+                      src={src}
+                      alt={alt}
+                      fill
+                      sizes="(min-width: 1024px) 25vw, 50vw"
+                      className="object-cover transition duration-300 group-hover:scale-[1.03]"
+                    />
+                  </div>
+                  <p className="p-3 text-lg">{name}</p>
                 </Link>
               </li>
             ))}

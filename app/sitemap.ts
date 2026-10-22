@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/dzemovi",
     "/sokovi",
     "/somborka",
+    "/zimnica",
     "/recepti",
     ...recipes.map((recipe) => `/recepti/${recipe.slug}`),
     "/korpa",

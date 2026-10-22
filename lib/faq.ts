@@ -66,7 +66,7 @@ export const faqs: FaqItem[] = [
     id: "asortiman",
     question: "Šta je u ponudi?",
     answer: [
-      "Blagi i ljuti ajvar, 375 g i 700 g. Džem od šipurka, pekmez od šljive, džem od jagode i džem od kajsije. Matični sok od aronije i divlje borovnice, borovnica je 0,5 l. Somborka su pasterizovani fileti, tegla 680 g, neto plod 380 g. Cena na kartici je za jednu teglu ili flašu, u dinarima.",
+      "Blagi i ljuti ajvar, 375 g i 700 g. Džem od šipurka, pekmez od šljive, džem od jagode i džem od kajsije. Matični sok od aronije i divlje borovnice, borovnica je 0,5 l, sok od paradajza je 1 l. Somborka, paprika fileti, peckana paprika, cvekla i kornišoni su tegle od 680 g. Cena na kartici je za jednu teglu ili flašu, u dinarima.",
     ],
   },
   {
