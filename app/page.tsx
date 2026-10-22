@@ -6,6 +6,7 @@ import { AjvarProcess } from "@/components/ajvar-process"
 import { Container } from "@/components/container"
 import { GuestNight } from "@/components/guest-night"
 import { HeroSlides } from "@/components/hero-slides"
+import { Packs } from "@/components/packs"
 import { PantryGap } from "@/components/pantry-gap"
 import { TastePick } from "@/components/taste-pick"
 import { buttonVariants } from "@/components/ui/button"
@@ -113,6 +114,12 @@ export default function HomePage() {
               </p>
             </li>
           </ul>
+        </Container>
+      </section>
+
+      <section className="border-y border-border bg-[#fff8e4] py-14 md:py-20">
+        <Container>
+          <Packs />
         </Container>
       </section>
 

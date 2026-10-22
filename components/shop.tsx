@@ -4,6 +4,7 @@ import Image from "next/image"
 import { useSyncExternalStore } from "react"
 
 import { Container } from "@/components/container"
+import { Packs } from "@/components/packs"
 import { ProductGrid } from "@/components/product-card"
 import { DiscoverNew } from "@/components/recommend"
 import {
@@ -100,7 +101,11 @@ export function Shop() {
           })}
         </div>
 
-        <div className="mt-6 grid gap-10">
+        <div className="mt-8">
+          <Packs />
+        </div>
+
+        <div className="mt-12 grid gap-10">
           {visible.map((category) => (
             <section key={category.slug} aria-labelledby={`grupa-${category.slug}`}>
               <h2 id={`grupa-${category.slug}`} className="text-3xl sm:text-4xl">

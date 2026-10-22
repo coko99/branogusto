@@ -15,6 +15,46 @@ export const coupons: Record<string, { label: string; rate: number }> = {
   ZIMNICA10: { label: "ZIMNICA10 · 10%", rate: 0.1 },
 }
 
+export const packs = [
+  {
+    slug: "hladni-start",
+    name: "Hladni start",
+    line: "Tri tegle da vidiš da li ti ostava leži.",
+    productSlugs: ["ajvar-blagi-375", "dzem-kajsija", "dzem-sipurak"],
+  },
+  {
+    slug: "sto-za-dvoje",
+    name: "Sto za dvoje",
+    line: "Blagi, somborka i jagoda. Večera bez dogovora.",
+    productSlugs: ["ajvar-blagi-700", "somborka", "dzem-jagoda"],
+  },
+  {
+    slug: "ljuta-kuca",
+    name: "Ljuta kuća",
+    line: "Ljuti na sredinu stola, šljiva za one koji mere.",
+    productSlugs: ["ajvar-ljuti-700", "somborka", "pekmez-sljiva"],
+  },
+  {
+    slug: "slatka-ostava",
+    name: "Slatka ostava",
+    line: "Četiri voća. Doručak rešen do proleća.",
+    productSlugs: ["dzem-sipurak", "pekmez-sljiva", "dzem-jagoda", "dzem-kajsija"],
+  },
+  {
+    slug: "ostava-pre-mraza",
+    name: "Ostava pre mraza",
+    line: "Oba ajvara, šipurak, kajsija, somborka i borovnica.",
+    productSlugs: [
+      "ajvar-blagi-700",
+      "ajvar-ljuti-700",
+      "dzem-sipurak",
+      "dzem-kajsija",
+      "somborka",
+      "sok-borovnica",
+    ],
+  },
+] as const
+
 export const pickupSpots = [
   {
     id: "krusevac",

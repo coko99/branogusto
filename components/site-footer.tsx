@@ -34,6 +34,11 @@ export function SiteFooter() {
               </li>
             ))}
             <li>
+              <Link href="/proizvodi#paketi" className="text-muted-foreground hover:text-foreground">
+                Paketi
+              </Link>
+            </li>
+            <li>
               <Link href="/recepti" className="text-muted-foreground hover:text-foreground">
                 Recepti
               </Link>
