@@ -78,7 +78,7 @@ export function ComingSoon() {
         <p className="mt-8 text-xs font-semibold tracking-[0.22em] text-paprika uppercase">Uskoro</p>
         <h1 className="mt-3 text-5xl sm:text-6xl">Još nije otvoreno.</h1>
         <p className="mt-4 max-w-sm text-lg leading-8 text-muted-foreground">
-          Sajt je na dolasku. Ukucaj pin, pa uđi.
+          Ostava je puna. Pin je kvaka.
         </p>
         <form onSubmit={onSubmit} className="mt-8 flex flex-col items-center gap-4">
           <div className="flex gap-2" role="group" aria-label="Pin">
