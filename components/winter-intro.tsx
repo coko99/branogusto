@@ -28,14 +28,16 @@ let lastLine: string | null = null
 let lastAt = 0
 
 function initialLine() {
+  // Prerender mora da bude isti na svakom buildu. Nasumičan izbor ide tek u pregledaču.
+  if (typeof document === "undefined") return lines[0]
+
   const now = Date.now()
   if (lastLine && now - lastAt < 50) return lastLine
 
-  const saved =
-    typeof document !== "undefined" && !usedServerSeed
-      ? document.querySelector("[data-uvod-reci]")?.getAttribute("data-uvod-reci")
-      : null
-  if (typeof document !== "undefined") usedServerSeed = true
+  const saved = !usedServerSeed
+    ? document.querySelector("[data-uvod-reci]")?.getAttribute("data-uvod-reci")
+    : null
+  usedServerSeed = true
 
   const line = saved && lines.some((item) => item === saved) ? saved : pickLine()
   lastLine = line
