@@ -1,6 +1,45 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState, useSyncExternalStore } from "react"
+
+const words = [
+  "Ajvar",
+  "Blagi",
+  "Ljuti",
+  "Paprika",
+  "Džem",
+  "Šipurak",
+  "Šljiva",
+  "Jagoda",
+  "Kajsija",
+  "Somborka",
+  "Aronija",
+  "Borovnica",
+  "Pekmez",
+  "Sok",
+  "Matični",
+  "Filet",
+  "Tegla",
+  "Zimnica",
+  "Ostava",
+  "Hleb",
+  "Kašika",
+  "Sir",
+  "Sendvič",
+  "Žar",
+  "Njiva",
+  "Vatra",
+  "Kora",
+  "Mlin",
+  "Šerpa",
+  "Gutljaj",
+] as const
+
+const spin = 16
+
+function subscribe() {
+  return () => {}
+}
 
 const flakes = Array.from({ length: 26 }, (_, index) => ({
   left: `${(index * 37) % 100}%`,
@@ -12,6 +51,8 @@ const flakes = Array.from({ length: 26 }, (_, index) => ({
 
 export function WinterIntro({ onDone }: { onDone: () => void }) {
   const done = useRef(false)
+  const onClient = useSyncExternalStore(subscribe, () => true, () => false)
+  const [turn] = useState(() => Math.floor(Math.random() * words.length))
 
   useEffect(() => {
     const panel = document.getElementById("zimski-uvod")
@@ -60,7 +101,7 @@ export function WinterIntro({ onDone }: { onDone: () => void }) {
       className="winter-intro"
       role="dialog"
       aria-modal="true"
-      aria-labelledby="uvod-naslov"
+      aria-label="Reči iz ostave"
     >
       <div className="snowfield" aria-hidden="true">
         {flakes.map((flake) => (
@@ -88,23 +129,40 @@ export function WinterIntro({ onDone }: { onDone: () => void }) {
           </svg>
         ))}
       </div>
-      <div className="relative z-10 mx-auto max-w-xl px-6 text-center">
-        <p className="text-xs font-semibold tracking-[0.22em] text-[#d7e6f5] uppercase">
-          Pahulje već vežbaju
-        </p>
-        <h2 id="uvod-naslov" className="mt-4 text-5xl text-white sm:text-6xl">
-          Zima uskoro stiže.
-        </h2>
-        <p className="mt-4 text-lg leading-8 text-white/85">
-          Zimnica treba da se spremi pre nego što prozor pobeli. Ajvar, džem i somborka ne čekaju
-          prvi mraz — mi jesmo spremni.
-        </p>
+      <div className="relative z-10 grid place-items-center">
+        {onClient ? (
+          <div
+            className="word-ring"
+            style={{ animationDelay: `${(-turn * spin) / words.length}s` }}
+            aria-hidden="true"
+          >
+            {words.map((word, index) => {
+              const outer = index % 2 === 0
+              const slot = Math.floor(index / 2)
+              const angle = slot * (360 / 15) + (outer ? 0 : 12)
+              return (
+              <span
+                key={word}
+                className={outer ? "word-spot" : "word-spot is-inner"}
+                style={{ ["--angle" as string]: `${angle}deg` }}
+              >
+                <span
+                  className="word-upright"
+                  style={{ animationDelay: `${(-turn * spin) / words.length}s` }}
+                >
+                  <b>{word}</b>
+                </span>
+              </span>
+              )
+            })}
+          </div>
+        ) : null}
         <button
           type="button"
           data-skip
-          className="mt-8 inline-flex h-12 items-center rounded-full bg-white px-6 text-sm font-semibold text-[#16324a]"
+          className="relative z-10 inline-flex h-12 items-center rounded-full bg-white px-6 text-sm font-semibold text-[#16324a]"
         >
-          Ulazim, ostava je spremna
+          Ulazim
         </button>
       </div>
     </div>
