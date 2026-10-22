@@ -101,11 +101,7 @@ export function Shop() {
           })}
         </div>
 
-        <div className="mt-8">
-          <Packs />
-        </div>
-
-        <div className="mt-12 grid gap-10">
+        <div className="mt-8 grid gap-10">
           {visible.map((category) => (
             <section key={category.slug} aria-labelledby={`grupa-${category.slug}`}>
               <h2 id={`grupa-${category.slug}`} className="text-3xl sm:text-4xl">
@@ -118,6 +114,12 @@ export function Shop() {
             </section>
           ))}
         </div>
+
+        {active === "sve" ? (
+          <div className="mt-14">
+            <Packs />
+          </div>
+        ) : null}
         <DiscoverNew />
       </Container>
     </section>
