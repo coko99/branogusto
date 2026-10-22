@@ -191,55 +191,6 @@
   animation: intro-life 2.4s linear forwards;
 }
 
-.word-ring {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-}
-
-.word-spot {
-  --ring: 142px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: rotate(var(--angle)) translateY(calc(-1 * var(--ring)));
-}
-
-.word-spot.is-inner {
-  --ring: 90px;
-}
-
-.word-upright {
-  display: block;
-}
-
-.word-upright b {
-  display: block;
-  transform: translate(-50%, -50%) rotate(calc(-1 * var(--angle)));
-  font-weight: 600;
-  font-size: 0.58rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  color: #f4fbff;
-}
-
-@media (min-width: 700px) {
-  .word-spot {
-    --ring: 268px;
-  }
-
-  .word-spot.is-inner {
-    --ring: 148px;
-  }
-
-  .word-upright b {
-    font-size: 0.84rem;
-  }
-}
-
 .winter-intro.is-done {
   animation: none;
   opacity: 0;
@@ -271,15 +222,6 @@
 .hero-ticker-track {
   width: max-content;
   white-space: nowrap;
-}
-
-@keyframes word-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 @keyframes intro-life {
@@ -497,15 +439,6 @@
 
   .snowman-fly {
     animation: snowman-fly 52s ease-in-out infinite;
-  }
-
-  .word-ring,
-  .word-upright {
-    animation: word-spin 16s linear infinite;
-  }
-
-  .word-upright {
-    animation-direction: reverse;
   }
 
   .snowman-bob {

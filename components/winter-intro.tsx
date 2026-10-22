@@ -35,10 +35,19 @@ const words = [
   "Gutljaj",
 ] as const
 
-const spin = 16
-
 function subscribe() {
   return () => {}
+}
+
+function pickWords() {
+  const count = 2 + Math.floor(Math.random() * 2)
+  const pool = [...words]
+  const chosen: string[] = []
+  for (let index = 0; index < count; index += 1) {
+    const pick = Math.floor(Math.random() * pool.length)
+    chosen.push(pool.splice(pick, 1)[0])
+  }
+  return chosen
 }
 
 const flakes = Array.from({ length: 26 }, (_, index) => ({
@@ -52,7 +61,7 @@ const flakes = Array.from({ length: 26 }, (_, index) => ({
 export function WinterIntro({ onDone }: { onDone: () => void }) {
   const done = useRef(false)
   const onClient = useSyncExternalStore(subscribe, () => true, () => false)
-  const [turn] = useState(() => Math.floor(Math.random() * words.length))
+  const [line] = useState(pickWords)
 
   useEffect(() => {
     const panel = document.getElementById("zimski-uvod")
@@ -101,7 +110,7 @@ export function WinterIntro({ onDone }: { onDone: () => void }) {
       className="winter-intro"
       role="dialog"
       aria-modal="true"
-      aria-label="Reči iz ostave"
+      aria-label={onClient ? line.join(", ") : "Zimnica"}
     >
       <div className="snowfield" aria-hidden="true">
         {flakes.map((flake) => (
@@ -129,38 +138,20 @@ export function WinterIntro({ onDone }: { onDone: () => void }) {
           </svg>
         ))}
       </div>
-      <div className="relative z-10 grid place-items-center">
+      <div className="relative z-10 px-6 text-center">
         {onClient ? (
-          <div
-            className="word-ring"
-            style={{ animationDelay: `${(-turn * spin) / words.length}s` }}
-            aria-hidden="true"
-          >
-            {words.map((word, index) => {
-              const outer = index % 2 === 0
-              const slot = Math.floor(index / 2)
-              const angle = slot * (360 / 15) + (outer ? 0 : 12)
-              return (
-              <span
-                key={word}
-                className={outer ? "word-spot" : "word-spot is-inner"}
-                style={{ ["--angle" as string]: `${angle}deg` }}
-              >
-                <span
-                  className="word-upright"
-                  style={{ animationDelay: `${(-turn * spin) / words.length}s` }}
-                >
-                  <b>{word}</b>
-                </span>
+          <p className="text-5xl leading-tight text-white sm:text-6xl">
+            {line.map((word) => (
+              <span key={word} className="block">
+                {word}
               </span>
-              )
-            })}
-          </div>
+            ))}
+          </p>
         ) : null}
         <button
           type="button"
           data-skip
-          className="relative z-10 inline-flex h-12 items-center rounded-full bg-white px-6 text-sm font-semibold text-[#16324a]"
+          className="mt-8 inline-flex h-12 items-center rounded-full bg-white px-6 text-sm font-semibold text-[#16324a]"
         >
           Ulazim
         </button>
