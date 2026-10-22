@@ -19,7 +19,8 @@ const sans = Outfit({
 const display = Fraunces({
   subsets: ["latin", "latin-ext"],
   variable: "--font-display",
-  weight: ["500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
 })
 
 export const metadata: Metadata = {

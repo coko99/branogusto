@@ -129,7 +129,10 @@ export function WinterIntro({ onDone }: { onDone: () => void }) {
         ))}
       </div>
       <div className="relative z-10 px-6 text-center">
-        <p data-uvod-reci={line} className="max-w-md text-3xl leading-tight font-medium text-white sm:max-w-xl sm:text-5xl">
+        <p
+          data-uvod-reci={line}
+          className="max-w-xs font-heading text-xl leading-snug font-normal tracking-wide text-white/90 italic sm:max-w-md sm:text-3xl"
+        >
           {line}
         </p>
         <button
