@@ -3,18 +3,20 @@
 import { useEffect, useRef, useState } from "react"
 
 const lines = [
-  "Zima kuca. Zimnica je već u tegli.",
-  "Pahulja pada. Ajvar čeka hleb.",
-  "Mraz može napolju. Ostava je puna.",
-  "Hladno je napolju. U tegli je leto.",
-  "Prvi sneg se gleda. Ajvar se jede.",
-  "Šipurak greje šolju dok prozor beli.",
-  "Ljuti ne mari što je minus.",
-  "Somborka pamti leto, sendvič je zimski.",
-  "Dok veje, kajsija stoji na siru.",
-  "Zimnica se ne kuva u januaru.",
-  "Tegla ne zebe. Ti da.",
-  "Ostava pamti leto bolje od nas.",
+  "Komšija već maže. Ti još gledaš sneg.",
+  "Ljuti ne pita jesi li spreman.",
+  "Hleb je sam. Ajvar nije kriv.",
+  "Šipurak u šolju. Izgovor napolje.",
+  "Somborka hoće sendvič, ne prognozu.",
+  "Kajsija je na siru pre tebe.",
+  "Ostava te gleda. Korpa je prazna.",
+  "Minus napolju. Ljuto unutra.",
+  "Pahulja ne ide na hleb. Ajvar ide.",
+  "Ako čekaš januar, jedeš tuđu zimnicu.",
+  "Blagi je miran. Ljuti nije došao na dogovor.",
+  "Aronija budi bolje od budilnika.",
+  "Šljiva čeka palačinku, ne tebe.",
+  "Sneg sme da veje. Tegla ne sme da čeka.",
 ] as const
 
 function pickLine() {
