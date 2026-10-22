@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState, useSyncExternalStore } from "react"
+import { useEffect, useRef, useState } from "react"
 
 const words = [
   "Ajvar",
@@ -35,10 +35,6 @@ const words = [
   "Gutljaj",
 ] as const
 
-function subscribe() {
-  return () => {}
-}
-
 function pickWords() {
   const count = 2 + Math.floor(Math.random() * 2)
   const pool = [...words]
@@ -48,6 +44,26 @@ function pickWords() {
     chosen.push(pool.splice(pick, 1)[0])
   }
   return chosen
+}
+
+let usedServerSeed = false
+let lastLine: string[] | null = null
+let lastAt = 0
+
+function initialLine() {
+  const now = Date.now()
+  if (lastLine && now - lastAt < 50) return lastLine
+
+  const saved =
+    typeof document !== "undefined" && !usedServerSeed
+      ? document.querySelector("[data-uvod-reci]")?.getAttribute("data-uvod-reci")
+      : null
+  if (typeof document !== "undefined") usedServerSeed = true
+
+  const line = saved ? saved.split("|").filter(Boolean) : pickWords()
+  lastLine = line
+  lastAt = now
+  return line
 }
 
 const flakes = Array.from({ length: 26 }, (_, index) => ({
@@ -60,8 +76,7 @@ const flakes = Array.from({ length: 26 }, (_, index) => ({
 
 export function WinterIntro({ onDone }: { onDone: () => void }) {
   const done = useRef(false)
-  const onClient = useSyncExternalStore(subscribe, () => true, () => false)
-  const [line] = useState(pickWords)
+  const [line] = useState(initialLine)
 
   useEffect(() => {
     const panel = document.getElementById("zimski-uvod")
@@ -110,7 +125,7 @@ export function WinterIntro({ onDone }: { onDone: () => void }) {
       className="winter-intro"
       role="dialog"
       aria-modal="true"
-      aria-label={onClient ? line.join(", ") : "Zimnica"}
+      aria-label={line.join(", ")}
     >
       <div className="snowfield" aria-hidden="true">
         {flakes.map((flake) => (
@@ -139,15 +154,13 @@ export function WinterIntro({ onDone }: { onDone: () => void }) {
         ))}
       </div>
       <div className="relative z-10 px-6 text-center">
-        {onClient ? (
-          <p className="text-5xl leading-tight text-white sm:text-6xl">
-            {line.map((word) => (
-              <span key={word} className="block">
-                {word}
-              </span>
-            ))}
-          </p>
-        ) : null}
+        <p data-uvod-reci={line.join("|")} className="text-5xl leading-none font-medium text-white sm:text-7xl">
+          {line.map((word) => (
+            <span key={word} className="mt-2 block first:mt-0">
+              {word}
+            </span>
+          ))}
+        </p>
         <button
           type="button"
           data-skip
