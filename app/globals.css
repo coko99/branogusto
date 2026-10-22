@@ -360,6 +360,20 @@
   }
 }
 
+@keyframes dish-pop {
+  0% {
+    opacity: 0;
+    transform: translateY(28px) scale(0.92);
+  }
+  70% {
+    transform: translateY(-6px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @keyframes rise-in {
   from {
     opacity: 0;
@@ -432,6 +446,10 @@
 
   .taste-swap {
     animation: taste-swap 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+
+  .dish-pop {
+    animation: dish-pop 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) both;
   }
 
   @supports (animation-timeline: view()) {
