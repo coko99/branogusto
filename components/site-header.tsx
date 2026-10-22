@@ -42,14 +42,14 @@ export function SiteHeader() {
           />
         </Link>
 
-        <nav className="ml-auto hidden items-center gap-5 md:flex" aria-label="Glavni meni">
+        <nav className="ml-auto hidden items-center gap-4 lg:flex" aria-label="Glavni meni">
           {nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               aria-current={isCurrent(pathname, item.href) ? "page" : undefined}
               className={cn(
-                "text-sm font-medium text-foreground/80 transition-colors hover:text-foreground",
+                "text-sm font-medium whitespace-nowrap text-foreground/80 transition-colors hover:text-foreground",
                 isCurrent(pathname, item.href) && "text-paprika"
               )}
             >
@@ -101,7 +101,7 @@ export function SiteHeader() {
           <SheetTrigger
             className={cn(
               buttonVariants({ variant: "outline", size: "icon" }),
-              "size-11 md:hidden"
+              "size-11 lg:hidden"
             )}
             aria-label="Otvori meni"
           >

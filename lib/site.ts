@@ -20,6 +20,7 @@ export const nav = [
   { href: "/", label: "Početna" },
   { href: "/proizvodi", label: "Prodavnica" },
   { href: "/recepti", label: "Recepti" },
+  { href: "/pitanja", label: "Najčešća pitanja" },
   { href: "/kontakt", label: "Kontakt" },
 ] as const
 

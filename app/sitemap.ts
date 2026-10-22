@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/korpa",
     "/politika-privatnosti",
     "/uslovi-narudzine",
+    "/pitanja",
     "/kontakt",
   ]
 

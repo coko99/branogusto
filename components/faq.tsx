@@ -43,13 +43,14 @@ const faqLd = {
   })),
 }
 
-export function FaqSection() {
+export function FaqSection({ heading = "h2" }: { heading?: "h1" | "h2" }) {
+  const Title = heading
   return (
     <section id="pitanja" className="scroll-mt-32 border-t border-border bg-[#fffdf8] py-14 md:py-20">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <Container>
         <p className="text-xs font-semibold tracking-[0.2em] text-paprika uppercase">Pre nego što pozoveš</p>
-        <h2 className="mt-3 max-w-2xl text-4xl sm:text-5xl">Najčešća pitanja</h2>
+        <Title className="mt-3 max-w-2xl text-4xl sm:text-5xl">Najčešća pitanja</Title>
         <p className="mt-3 max-w-xl text-base leading-7 text-muted-foreground">
           Porudžbina, poštarina, paketi i tegle. Ako odgovora nema ovde, javi se. Broj je na dnu.
         </p>

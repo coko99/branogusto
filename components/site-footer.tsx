@@ -49,7 +49,7 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
-              <Link href="/#pitanja" className="text-muted-foreground hover:text-foreground">
+              <Link href="/pitanja" className="text-muted-foreground hover:text-foreground">
                 Najčešća pitanja
               </Link>
             </li>
