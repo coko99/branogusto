@@ -2,52 +2,27 @@
 
 import { useEffect, useRef, useState } from "react"
 
-const words = [
-  "Ajvar",
-  "Blagi",
-  "Ljuti",
-  "Paprika",
-  "Džem",
-  "Šipurak",
-  "Šljiva",
-  "Jagoda",
-  "Kajsija",
-  "Somborka",
-  "Aronija",
-  "Borovnica",
-  "Pekmez",
-  "Sok",
-  "Matični",
-  "Filet",
-  "Tegla",
-  "Zimnica",
-  "Ostava",
-  "Hleb",
-  "Kašika",
-  "Sir",
-  "Sendvič",
-  "Žar",
-  "Njiva",
-  "Vatra",
-  "Kora",
-  "Mlin",
-  "Šerpa",
-  "Gutljaj",
+const lines = [
+  "Zima kuca. Zimnica je već u tegli.",
+  "Pahulja pada. Ajvar čeka hleb.",
+  "Mraz može napolju. Ostava je puna.",
+  "Hladno je napolju. U tegli je leto.",
+  "Prvi sneg se gleda. Ajvar se jede.",
+  "Šipurak greje šolju dok prozor beli.",
+  "Ljuti ne mari što je minus.",
+  "Somborka pamti leto, sendvič je zimski.",
+  "Dok veje, kajsija stoji na siru.",
+  "Zimnica se ne kuva u januaru.",
+  "Tegla ne zebe. Ti da.",
+  "Ostava pamti leto bolje od nas.",
 ] as const
 
-function pickWords() {
-  const count = 2 + Math.floor(Math.random() * 2)
-  const pool = [...words]
-  const chosen: string[] = []
-  for (let index = 0; index < count; index += 1) {
-    const pick = Math.floor(Math.random() * pool.length)
-    chosen.push(pool.splice(pick, 1)[0])
-  }
-  return chosen
+function pickLine() {
+  return lines[Math.floor(Math.random() * lines.length)]
 }
 
 let usedServerSeed = false
-let lastLine: string[] | null = null
+let lastLine: string | null = null
 let lastAt = 0
 
 function initialLine() {
@@ -60,7 +35,7 @@ function initialLine() {
       : null
   if (typeof document !== "undefined") usedServerSeed = true
 
-  const line = saved ? saved.split("|").filter(Boolean) : pickWords()
+  const line = saved && lines.some((item) => item === saved) ? saved : pickLine()
   lastLine = line
   lastAt = now
   return line
@@ -125,7 +100,7 @@ export function WinterIntro({ onDone }: { onDone: () => void }) {
       className="winter-intro"
       role="dialog"
       aria-modal="true"
-      aria-label={line.join(", ")}
+      aria-label={line}
     >
       <div className="snowfield" aria-hidden="true">
         {flakes.map((flake) => (
@@ -154,12 +129,8 @@ export function WinterIntro({ onDone }: { onDone: () => void }) {
         ))}
       </div>
       <div className="relative z-10 px-6 text-center">
-        <p data-uvod-reci={line.join("|")} className="text-5xl leading-none font-medium text-white sm:text-7xl">
-          {line.map((word) => (
-            <span key={word} className="mt-2 block first:mt-0">
-              {word}
-            </span>
-          ))}
+        <p data-uvod-reci={line} className="max-w-md text-3xl leading-tight font-medium text-white sm:max-w-xl sm:text-5xl">
+          {line}
         </p>
         <button
           type="button"
