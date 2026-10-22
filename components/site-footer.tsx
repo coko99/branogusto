@@ -87,6 +87,28 @@ export function SiteFooter() {
           </Link>
         </p>
       </Container>
+      <div className="bg-black text-white">
+        <Container className="flex items-center justify-center gap-3 py-4 pr-16 sm:pr-6">
+          <Image
+            src="/images/cokoladni.png"
+            alt=""
+            width={360}
+            height={360}
+            className="coko-glow size-20 sm:size-24"
+          />
+          <p className="leading-tight">
+            <span className="block text-[0.65rem] font-semibold tracking-[0.22em] text-[#bffcff] uppercase">
+              Powered by
+            </span>
+            <span
+              className="text-lg font-semibold tracking-wide text-white"
+              style={{ textShadow: "0 0 12px #3df6ff, 0 0 28px #14d4e6" }}
+            >
+              cokoladni
+            </span>
+          </p>
+        </Container>
+      </div>
     </footer>
   )
 }
